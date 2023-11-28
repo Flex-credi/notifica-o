@@ -4,44 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de Notificações</title>
+    <title>Meu Site Incrível</title>
     <style>
         body {
+            margin: 0;
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
             text-align: center;
-            margin: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.5s;
         }
 
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #fff;
+            color: #1c92d2;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s;
+        }
+
+        button:hover {
+            background-color: #1c92d2;
+            color: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <button onclick="notificar()">Clique para Notificar</button>
-
-    <script>
-        function notificar() {
-            // Verifica se o navegador suporta notificações
-            if (!('Notification' in window)) {
-                alert('Este navegador não suporta notificações');
-                return;
-            }
-
-            // Solicita permissão ao usuário para enviar notificações
-            Notification.requestPermission().then(function (permission) {
-                if (permission === 'granted') {
-                    // Cria e exibe a notificação
-                    var notificacao = new Notification('Título da Notificação', {
-                        body: 'Conteúdo da Notificação',
-                    });
-                } else {
-                    alert('Permissão para notificações negada');
-                }
-            });
-        }
-    </script>
+    <div class="container">
+        <h1>Bem-vindo ao Meu Site Incrível!</h1>
+        <p>Explore e descubra conteúdos fascinantes.</p>
+        <button>Começar</button>
+    </div>
 </body>
 </html>
